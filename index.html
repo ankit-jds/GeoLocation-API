@@ -15,11 +15,11 @@
 	var $msg=$('.msg')
 	function success(){
 		console.log("success")
-		$msg.append(`Longitude : ${Position.coords.longitude}
-			Latitude : ${Position.coords.latitude}
-			Accuracy : ${Position.coords.accuracy}
-			Altitude : ${Position.coords.altitude}
-			Altitude Accuracy : ${Position.coords.altitudeAccuracy}`)
+		$msg.append(`Longitude : ${position.coords.longitude}
+			Latitude : ${position.coords.latitude}
+			Accuracy : ${position.coords.accuracy}
+			Altitude : ${position.coords.altitude}
+			Altitude Accuracy : ${position.coords.altitudeAccuracy}`)
 	}
 	function fail(){
 		$msg.append("Sorry but somehow this isn't working...")

@@ -14,7 +14,7 @@
 	var $msg=$('.msg')
 	if (Modernizr.geolocation) {
 		navigator.geolocation.getCurrentPosition(success, fail);
-		function success(){
+		function success(position){
 			console.log("success",position.coords)
 			$msg.append(`Longitude : ${position.coords.longitude}
 				Latitude : ${position.coords.latitude}

@@ -14,7 +14,7 @@
 	navigator.geolocation.getCurrentPosition(success, fail);
 	var $msg=$('.msg')
 	function success(){
-		console.log("success")
+		console.log("success",position.coords)
 		$msg.append(`Longitude : ${position.coords.longitude}
 			Latitude : ${position.coords.latitude}
 			Accuracy : ${position.coords.accuracy}

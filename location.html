@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GEO Location...</title>
+</head>
+<body>
+	<div class="msg">
+		
+	</div>
+
+<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	navigator.geolocation.getCurrentPosition(success, fail);
+	var $msg=$('.msg')
+	function success(){
+		console.log("success")
+		$msg.append(`Longitude : ${Position.coords.longitude}
+			Latitude : ${Position.coords.latitude}
+			Accuracy : ${Position.coords.accuracy}
+			Altitude : ${Position.coords.altitude}
+			Altitude Accuracy : ${Position.coords.altitudeAccuracy}`)
+	}
+	function fail(){
+		$msg.append("Sorry but somehow this isn't working...")
+		console.log("fail")
+	}
+</script>
+</body>
+</html>

@@ -7,23 +7,28 @@
 	<div class="msg">
 		
 	</div>
-
+	<script src="modernizr-custom.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!-- <script type="text/javascript" src="jquery-3.6.0.min.js"></script> -->
 <script type="text/javascript">
-	navigator.geolocation.getCurrentPosition(success, fail);
 	var $msg=$('.msg')
-	function success(){
-		console.log("success",position.coords)
-		$msg.append(`Longitude : ${position.coords.longitude}
-			Latitude : ${position.coords.latitude}
-			Accuracy : ${position.coords.accuracy}
-			Altitude : ${position.coords.altitude}
-			Altitude Accuracy : ${position.coords.altitudeAccuracy}`)
+	if (Modernizr.geolocation) {
+		navigator.geolocation.getCurrentPosition(success, fail);
+		function success(){
+			console.log("success",position.coords)
+			$msg.append(`Longitude : ${position.coords.longitude}
+				Latitude : ${position.coords.latitude}
+				Accuracy : ${position.coords.accuracy}
+				Altitude : ${position.coords.altitude}
+				Altitude Accuracy : ${position.coords.altitudeAccuracy}`)
+		}
+		function fail(){
+			$msg.append("Sorry but somehow this isn't working...")
+			console.log("fail")
+		}
 	}
-	function fail(){
-		$msg.append("Sorry but somehow this isn't working...")
-		console.log("fail")
+	else{
+		$msg.append("GEO-Location is not available..")
 	}
 </script>
 </body>
